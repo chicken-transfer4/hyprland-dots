@@ -16,3 +16,5 @@ then go to .config/eww/scripts and make them all executable the same way
 make sure you have
 
 eww-wayland wayland hyprland hyprlock  and gtk3 installed
+
+you can swap the theme with the shortcut mod+t 
