@@ -1,0 +1,79 @@
+$button_content_size: dpi(50px);
+$button_content_spacing: dpi(5px);
+
+window .powermenu {
+  background: transparent;
+  min-height: dpi(70px);
+
+  .left-buttons {
+    background: $xbg;
+    border-radius:0px 0px 20px 0px;
+
+    .button {
+      &:last-child {
+        border-top-right-radius: $sidebar_corner_radius;
+      }
+    }
+
+    .clock {
+      padding: 0 dpi(0px);
+      .text {
+        min-width: dpi(34px);
+      }
+    }
+  }
+
+  .right-buttons {
+    background: $xbg;
+    border-radius:0px 0px 0px 20px;
+
+    .button {
+      &:first-child {
+        border-top-left-radius: $sidebar_corner_radius;
+      }
+    }
+  }
+
+  .button {
+    min-width: dpi(75px);
+    transition-duration: 0.3s;
+    border-bottom: dpi(0px) solid transparent;
+
+    .value {
+      font-size: dpi(20pt);
+      min-height: $button_content_size;
+      min-width: $button_content_size;
+      background: $x0;
+      border-radius: $round_max;
+      margin-left: $button_content_spacing;
+      margin-right: $button_content_spacing;
+
+      .text {
+        // Manually fix font vertical alignment
+        margin-top: dpi(3px);
+      }
+    }
+    &.color {
+      color: $x1;
+      &:hover {
+        color: $xbg;
+        .value
+        {
+          background:$x1;
+        }
+      }
+    }
+      &.focused {
+        .focus-indicator {
+          opacity: 1;
+        }
+      }
+
+      &.empty {
+        color: $x8;
+        .focus-indicator {
+          opacity: 0;
+        }
+      }
+    }
+  }

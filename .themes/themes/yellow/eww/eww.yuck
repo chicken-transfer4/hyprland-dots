@@ -1,0 +1,21 @@
+; >>> Variables and constants
+; ---------------------------
+(include "colors.yuck")
+(include "globals.yuck")
+
+; >>> Widgets
+; -----------
+(include "widgets/circular-symbol-icon.yuck")
+(include "widgets/circular-symbol-with-text.yuck")
+
+; >>> Windows
+; -----------
+; >> Bars
+(include "windows/bottom-bar.yuck")
+
+; >> Toggleable windows
+(include "windows/calendar.yuck")
+(include "windows/volume.yuck")
+(include "windows/powermenu.yuck")
+(include "windows/networks.yuck")
+(include "windows/topbar.yuck")

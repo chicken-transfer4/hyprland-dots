@@ -1,0 +1,102 @@
+$network_list_item_height: dpi(35px);
+window .networks {
+  background: $xbg;
+  border-top: 3px solid $x1;
+  border-radius:$sidebar_corner_radius $sidebar_corner_radius 0 0;
+  font-family: $font_sans;
+
+
+  .bandwidth {
+    margin: 0 dpi(14px) dpi(14px) dpi(14px);
+    font-size: dpi(14pt);
+    font-family: monospace;
+
+    .symbol {
+      margin-right: dpi(3px);
+      font-size: dpi(17pt);
+    }
+    .bandwidth-down .symbol {
+      color: $x1;
+    }
+    .bandwidth-up .symbol {
+      color: $x1;
+    }
+  }
+
+  .networks-scroll-container {
+    min-height: $network_list_item_height * 12;
+    margin: dpi(14px);
+    background: $x2;
+    border-radius: dpi(8px);
+  }
+
+  .network-list {
+    font-size: dpi(12pt);
+
+    .no-networks {
+      color: $x8;
+      font-size: dpi(12pt);
+      .symbol {
+        font-size: dpi(50pt);
+        margin-bottom: dpi(14px);
+      }
+    }
+
+    .network {
+      min-height: $network_list_item_height;
+      transition-duration: 0.2s;
+
+      .status-and-signal {
+        margin-left: dpi(11px);
+
+        border-left-width: dpi(6px);
+        border-style: dotted;
+
+        &.excellent {
+          border-color: $x1;
+        }
+        &.good {
+          border-color: $x1;
+        }
+        &.ok {
+          border-color: $x1;
+        }
+        &.bad {
+          border-color: $x1;
+        }
+
+        &.selected {
+          border-style: solid;
+        }
+
+      }
+
+
+      .button {
+        background: $x0;
+        margin-right: dpi(11px);
+        .symbol {
+          font-size: dpi(10pt);
+          padding: dpi(14px);
+        }
+
+        &.forget {
+          color: $x1;
+          border-radius: dpi(14px)
+        }
+        &.disconnect {
+          color: $x1;
+          border-radius: dpi(14px);
+        }
+        &.connect {
+          color: $x1;
+          border-radius: 50%;
+        }
+      }
+
+      .type {
+        margin: 0 dpi(11px);
+      }
+    }
+  }
+}

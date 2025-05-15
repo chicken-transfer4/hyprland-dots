@@ -1,0 +1,23 @@
+.metric scale.volume trough highlight {
+  all: unset;
+  background-color: $x1;
+  color: $xbg;
+  border-radius: 10px;
+}
+.metric scale trough {
+  all: unset;
+  background-color: $xbg;
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 100px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.volume {
+  font-size: 25px;
+  border-radius: 20 20 0 0;
+  background: $xbg;
+  color: $x1;
+}
+
+

@@ -1,0 +1,59 @@
+$button_content_size: dpi(25px);
+$button_content_spacing: dpi(10px);
+window .bottom-bar {
+  background: $xbg;
+
+  .buttons {
+    background: $xbg;
+    border-radius:0 0 0 0;
+
+
+    .clock {
+      padding: 0 dpi(6px);
+      .text {
+        min-width: dpi(30px);
+      }
+    }
+  }
+  .button {
+    min-width: dpi(60px);
+    font-size: dpi(20pt);
+    transition-duration: 0.3s;
+    border-bottom: dpi(1px) solid transparent;
+    .value {
+      font-family: $font_sans;
+      font-size: dpi(10pt);
+      min-height: $button_content_size;
+      min-width: $button_content_size;
+      background: $x0;
+      border-radius: $round_max;
+      margin-left: $button_content_spacing;
+      .text {
+        // Manually fix font vertical alignment
+        margin-bottom: dpi(1px);
+      }
+    }
+
+    &.color {
+      color: $x1;
+      &:hover {
+        color: $xbg;
+        .value{
+        background:$x1;
+      }
+      }
+    }
+      &.focused {
+        .focus-indicator {
+          opacity: 1;
+        }
+      }
+
+      &.empty {
+        color: $x8;
+        .focus-indicator {
+          opacity: 0;
+        }
+      }
+    }
+  }

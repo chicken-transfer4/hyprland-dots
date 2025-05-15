@@ -1,0 +1,43 @@
+.weatherMainBox {
+  background:$xbg;
+  border-top: 3px solid $x1;
+  border-radius:0 20 0 0;
+  padding: 20px;
+  .bigClock {
+    font-size: 45px;
+    padding-top: 0rem;
+    color: $x1;
+  }
+  .date {
+    font-size: 10px;
+    color: $x1;
+
+    .quoteTwo {
+      font-style: italic;
+      font-weight: bolder;
+      color: $x1;
+    }
+  }
+
+  .calendar {
+    font-size: 1.5rem;
+  }
+
+  calendar {
+    color: $x1;
+    padding: 8px;
+    .button {
+      color: transparent;
+    }
+  }
+
+  calendar:indeterminate {
+    color:$xfg;
+  }
+
+  calendar:selected {
+    background-color: $x1;
+    border-radius:30%;
+    color:$xbg;
+  }
+}

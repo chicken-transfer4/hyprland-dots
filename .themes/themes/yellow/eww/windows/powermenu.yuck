@@ -1,0 +1,105 @@
+(defwindow powermenu
+  :monitor 0
+  :geometry (geometry :x 0
+                      :y 0
+                      :width "25%"
+                      :anchor "top center")
+  :stacking "overlay"
+  (powermenu))
+
+(defwidget powermenu []
+  (box :orientation "horizontal"
+       :class "bottom-bar"
+      (box
+        :class "right-buttons"
+        :halign "end"
+        (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "sudo shutdown now"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text""" )
+            )
+          )
+        )
+         (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "sudo reboot"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text""" )
+            )
+          )
+        )
+       (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "hyprlock &"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text""" )
+            )
+          )
+        )
+
+  )
+      (box
+        :class "left-buttons"
+        :halign "start"
+        :space-evenly true
+          (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "sudo systemctl suspend"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text""" )
+            )
+          )
+        )      (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "exit"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text"" " )
+            )
+          )
+        )      (eventbox
+          :halign "baseline"
+          :class "button color"
+          :cursor "hand2"
+          :onclick "eww close powermenu"
+          (box
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            (box :class "value date"
+             (box :class "text""" )
+            )
+          )
+        )   
+  )))
+

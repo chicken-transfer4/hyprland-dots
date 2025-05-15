@@ -1,0 +1,64 @@
+(defwindow calendar []
+  :geometry (geometry
+    :x "-9px"
+    :y "-0px"
+    :width "250px"
+    :anchor "bottom left"
+  )
+  
+  :monitor 0
+  :windowtype "dock"
+  :stacking "fg"
+  
+    (eventbox
+      :onhoverlost "eww close weather"
+      (box  :orientation "v" 
+        :class "weatherMainBox"
+        :space-evenly false
+        :halign "center"
+
+        (dateCalendar)
+
+
+ 
+          
+      )
+    )
+  )
+(defwidget dateCalendar []
+  (box
+    :orientation "v"
+    :space-evenly false
+    (box
+      :orientation "h"
+      :space-evenly false
+      :halign "center"
+      (box
+        :orientation "v"
+        :space-evenly false
+        (label
+          :text {formattime(EWW_TIME, "%I:%M")}
+          :class "bigClock"
+        )
+        (label :text {formattime(EWW_TIME, "%B %d")}
+         :class "date"
+      )
+    )
+    )
+
+    ;; Calendar Box
+    (box
+      :space-evenly false
+      :class "calendar"
+      :halign "center"
+      
+      (calendar
+        :show-heading false
+        :tooltip {formattime(EWW_TIME, "%B %d %Y")}
+        :day {formattime(EWW_TIME, "%d")}
+        :month {formattime(EWW_TIME, "%m")}
+        :year {formattime(EWW_TIME, "%Y")}
+      )
+    )
+  )
+)

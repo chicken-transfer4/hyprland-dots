@@ -1,0 +1,77 @@
+; Add the includes
+(defvar revealVolume false)
+(defpoll volume1 :interval "1s"  "scripts/getvol")
+
+
+(defwidget volume []
+  (box :orientation "h"
+    (volume)
+  )
+)
+
+(defwidget metric[icon value ?onchange ?onclick ?class ?height ?width]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (termbutton :command "${onclick}" :height "1000" :width "1000"  :text "${icon}")
+    (scale :class {class != "" ? class : value > 50 ? value > 75 ? "error" : "warning" : "normal"}
+           :min 0
+           :max 101
+           :active {onchange != ""}
+           :onchange onchange)))
+
+(defwidget termbutton [command ?text ?floating ?width ?height]
+  (button :onclick "kitty -- sh -c '${floating == false ? "" : "i3-msg floating enable && clear && i3-msg resize set ${width == "" ? "800" : "${width}" }px ${height == "" ? "600" : "${height}" }px && i3-msg move position center && " } ${command}'"
+    (label :text text)
+  )
+)
+
+(defwidget revealer-on-hover [var varname ?class ?duration ?transition]
+  (box :class "${class} revealer-on-hover"
+       :orientation "h"
+       :space-evenly false
+    (eventbox :class "eventbox"
+              :onhover "eww update ${varname}=true"
+              :onhoverlost "eww update ${varname}=false"
+      (box :space-evenly false
+        (children :nth 0)
+        (revealer :reveal var
+                  :transition {transition ?: "slideright"}
+                  :duration {duration ?: "500ms"}
+          (children :nth 1))
+        (box :class "${class}" (children :nth 2))))))
+
+(defwidget volume [?class]
+  (box :space-evenly true
+    :halign "center"
+    :class "hover-module ${class}"
+    (revealer-on-hover :class "hl-on-hover"
+     :var revealVolume
+      :varname "revealVolume"
+      :transition "slideleft"
+      :class "volume"
+      
+      (hovered-sign :var revealVolume
+        (label :text "")
+        (label :text "")
+      )
+     (metric :icon ""
+        :class "volume"
+        :value volume
+      :onchange "amixer -D pulse sset Master {}%")
+    "    ")
+  )
+)
+  (defwindow volume
+    :monitor 0
+    :stacking "bottom"
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+      :y "0%"
+      :width "175px"
+      :height "10px"
+    :anchor "bottom center")
+    :reserve (struts :side "top" :distance "4%")
+    (volume)
+  )
+  
